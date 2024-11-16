@@ -1,0 +1,158 @@
+/* Основной стиль для сайта расчета пеней */
+
+/* Базовая стилизация страницы */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Центрирование и оформление контейнера */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* Заголовок */
+h1 {
+    font-size: 2em;
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Стилизация формы */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+input[type="text"], input[type="number"], input[type="date"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+/* Стили для кнопки отправки */
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Стили для отображения результата */
+.result {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #007bff;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.result h2 {
+    color: #0056b3;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-left: 5px solid #dc3545;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Стиль для ссылок и подчеркивания */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Радиокнопки */
+.form-check {
+    margin-bottom: 15px;
+}
+
+.form-check-input {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.form-check-label {
+    font-weight: normal;
+}
+
+/* Стили для списка результатов */
+.list-group {
+    list-style-type: none;
+    padding: 0;
+}
+
+.list-group-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+
+/* Стилизация для текста ошибок */
+.error {
+    color: #dc3545;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Дополнительные визуальные эффекты */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
