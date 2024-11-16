@@ -1,0 +1,39 @@
+from flask import Flask, request, render_template
+import requests
+from bs4 import BeautifulSoup
+from datetime import datetime
+
+app = Flask(__name__)
+
+@app.route("/", methods=["GET", "POST"])
+def home():
+    result = None
+    if request.method == "POST":
+        try:
+            amount = float(request.form.get("amount"))
+            due_date = request.form.get("due_date")
+            payment_date = request.form.get("payment_date")
+            
+            use_cbr_rate = request.form.get("use_cbr_rate")
+            if use_cbr_rate == 'yes':
+                key_rate = get_key_rate()
+            else:
+                key_rate = float(request.form.get("key_rate"))
+
+            penalty, overdue_days, key_rate = calculate_penalties(amount, due_date, payment_date, key_rate)
+
+            result = {
+                "amount": amount,
+                "due_date": due_date,
+                "payment_date": payment_date,
+                "key_rate": key_rate * 100,
+                "overdue_days": overdue_days,
+                "penalty": penalty
+            }
+        except Exception as e:
+            result = {"error": str(e)}
+
+    return render_template("index.html", result=result)
+
+if __name__ == "__main__":
+    app.run(debug=True)
